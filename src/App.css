@@ -3,6 +3,23 @@
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+:root {
+  --background: #fff;
+  --text: #333;
+  --card: #f9f9f9;
+  --shadow: rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] {
+  --background: #333;
+  --text: #fff;
+  --card: #444;
+  --shadow: rgba(255,255,255,0.1);
 }
 
 h1 {
@@ -19,6 +36,9 @@ h1 {
 input, select, button {
   padding: 8px;
   font-size: 16px;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--shadow);
 }
 
 ul {
@@ -33,7 +53,8 @@ li {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px var(--shadow);
+  background: var(--card);
 }
 
 .priority-low { background-color: #d4edda; }
