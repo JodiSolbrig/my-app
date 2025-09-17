@@ -9,6 +9,7 @@ interface Task {
   title: string;
   dueDate: string;
   priority: 'Low' | 'Medium' | 'High';
+  completed: boolean;
 }
 
 const lightTheme = {
@@ -64,10 +65,10 @@ const App: React.FC = () => {
   const addOrUpdateTask = () => {
     if (!title || !dueDate) return;
     if (editingId) {
-      setTasks(tasks.map(task => task.id === editingId ? { ...task, title, dueDate, priority } : task));
+      setTasks(tasks.map(task => task.id === editingId ? { ...task, title, dueDate, priority } : task));      
       setEditingId(null);
     } else {
-      setTasks([...tasks, { id: uuidv4(), title, dueDate, priority }]);
+      setTasks([...tasks, { id: uuidv4(), title, dueDate, priority, completed: false }]);
     }
     setTitle('');
     setDueDate('');
@@ -79,10 +80,15 @@ const App: React.FC = () => {
     setDueDate(task.dueDate);
     setPriority(task.priority);
     setEditingId(task.id);
+    // No change to completed, as it's not edited here
   };
 
   const deleteTask = (id: string) => {
     setTasks(tasks.filter(task => task.id !== id));
+  };
+
+  const toggleCompleted = (id: string) => {
+    setTasks(tasks.map(task => task.id === id ? { ...task, completed: !task.completed } : task));
   };
 
   return (
@@ -110,8 +116,9 @@ const App: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className={`priority-${task.priority.toLowerCase()}`}
+                className={`priority-${task.priority.toLowerCase()} ${task.completed ? 'completed' : ''}`}
               >
+                <input type="checkbox" checked={task.completed} onChange={() => toggleCompleted(task.id)} />
                 <span>{task.title} - Due: {task.dueDate} - Priority: {task.priority}</span>
                 <button onClick={() => editTask(task)}>Edit</button>
                 <button onClick={() => deleteTask(task.id)}>Delete</button>
