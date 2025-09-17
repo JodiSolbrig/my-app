@@ -1,93 +1,102 @@
 .app {
-     max-width: 600px;
-     margin: 0 auto;
-     padding: 20px;
-     font-family: Arial, sans-serif;
-     background: var(--background);
-     color: var(--text);
-     min-height: 100vh;
-   }
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+}
 
-   :root {
-     --background: #fff;
-     --text: #333;
-     --card: #f9f9f9;
-     --shadow: rgba(0,0,0,0.1);
-   }
+:root {
+  --background: #fff;
+  --text: #333;
+  --card: #f9f9f9;
+  --shadow: rgba(0,0,0,0.1);
+}
 
-   [data-theme="dark"] {
-     --background: #333;
-     --text: #fff;
-     --card: #444;
-     --shadow: rgba(255,255,255,0.1);
-   }
+[data-theme="dark"] {
+  --background: #333;
+  --text: #fff;
+  --card: #444;
+  --shadow: rgba(255,255,255,0.1);
+}
 
-   h1 {
-     text-align: center;
-   }
+h1 {
+  text-align: center;
+}
 
-   .form {
-     display: flex;
-     flex-direction: column;
-     gap: 10px;
-     margin-bottom: 20px;
-   }
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
 
-   .form div {
-     display: flex;
-     flex-direction: column;
-   }
+.form div {
+  display: flex;
+  flex-direction: column;
+}
 
-   .error {
-     color: red;
-     font-size: 12px;
-     margin-top: 4px;
-   }
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
 
-   input, select, button {
-     padding: 8px;
-     font-size: 16px;
-     background: var(--card);
-     color: var(--text);
-     border: 1px solid var(--shadow);
-   }
+input, select, button {
+  padding: 8px;
+  font-size: 16px;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--shadow);
+}
 
-   button:disabled {
-     opacity: 0.5;
-     cursor: not-allowed;
-   }
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
-   ul {
-     list-style: none;
-     padding: 0;
-   }
+ul {
+  list-style: none;
+  padding: 0;
+}
 
-   li {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     padding: 10px;
-     margin-bottom: 10px;
-     border-radius: 5px;
-     box-shadow: 0 2px 4px var(--shadow);
-     background: var(--card);
-   }
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px var(--shadow);
+  background: var(--card);
+}
 
-   .priority-low { background-color: #509961; }
-   .priority-medium { background-color: #91814d; }
-   .priority-high { background-color: #a05158; }
+.priority-low { 
+  background-color: #4caf50; 
+  color: var(--text);
+}
+.priority-medium { 
+  background-color: #ffb300; 
+  color: var(--text);
+}
+.priority-high { 
+  background-color: #d81b60; 
+  color: var(--text);
+}
 
-   .completed span {
-     text-decoration: line-through;
-     color: gray;
-   }
+.completed span {
+  text-decoration: line-through;
+  color: gray;
+}
 
-   button {
-     margin-left: 10px;
-     cursor: pointer;
-   }
+button {
+  margin-left: 10px;
+  cursor: pointer;
+}
 
-   @media (max-width: 600px) {
-     .form { flex-direction: column; }
-     li { flex-direction: column; align-items: flex-start; }
-   }
+@media (max-width: 600px) {
+  .form { flex-direction: column; }
+  li { flex-direction: column; align-items: flex-start; }
+}
