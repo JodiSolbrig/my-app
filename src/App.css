@@ -29,6 +29,7 @@ body {
 
 h1 {
   text-align: center;
+  margin-top: 60px; /* Add space to avoid overlap with ThemeToggle */
 }
 
 .form {
@@ -55,6 +56,7 @@ input, select, button {
   background: var(--card);
   color: var(--text);
   border: 1px solid var(--shadow);
+  border-radius: 10px; 
 }
 
 button:disabled {
@@ -70,12 +72,29 @@ ul {
 li {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; 
   padding: 10px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 2px 4px var(--shadow);
   background: var(--card);
+  flex-wrap: nowrap; /* Prevent wrapping of entire li */
+}
+
+li span {
+  flex: 1;
+  margin-right: 10px;
+  overflow-wrap: break-word;
+  max-width: calc(100% - 150px); /* Reserve space for checkbox and buttons */
+  display: flex;
+  align-items: center; /* Center text vertically */
+}
+
+li div.button-group {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+  align-items: center; /* Center buttons vertically */
 }
 
 .priority-low { 
@@ -87,7 +106,7 @@ li {
   color: var(--text);
 }
 .priority-high { 
-  background-color: #d81b60; 
+  background-color: #b40101; 
   color: var(--text);
 }
 
@@ -99,9 +118,20 @@ li {
 button {
   margin-left: 10px;
   cursor: pointer;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 600px) {
   .form { flex-direction: column; }
-  li { flex-direction: column; align-items: flex-start; }
+  li { flex-direction: row; align-items: center; flex-wrap: nowrap; }
+  li span { flex: 1; margin-right: 10px; }
+  li div.button-group { flex-direction: row; }
+  .theme-toggle { /* Target ThemeToggle in mobile */
+    top: 10px;
+    right: 10px;
+  }
+}
+
+input[type="checkbox"] {  
+  margin-right: 10px; /* space between checkbox and task text */
 }

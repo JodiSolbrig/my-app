@@ -108,7 +108,7 @@ import React, { useState, useEffect } from 'react';
            <ThemeToggle onClick={toggleTheme}>
              {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
            </ThemeToggle>
-           <h1>Legal Document Task Tracker</h1>
+           <h1>Task Tracker</h1>
            <div className="form">
              <div>
                <input
@@ -152,8 +152,10 @@ import React, { useState, useEffect } from 'react';
                      onChange={() => toggleCompleted(task.id)}
                    />
                    <span>{task.title} - Due: {task.dueDate} - Priority: {task.priority}</span>
-                   <button onClick={() => editTask(task)}>Edit</button>
-                   <button onClick={() => deleteTask(task.id)}>Delete</button>
+                   <div className="button-group">
+                    <button onClick={() => editTask(task)}>Edit</button>
+                    <button onClick={() => deleteTask(task.id)}>Delete</button>
+                   </div>
                  </motion.li>
                ))}
              </AnimatePresence>
