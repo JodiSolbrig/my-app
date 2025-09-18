@@ -62,6 +62,7 @@ import React, { useState, useEffect } from 'react';
 
      const toggleTheme = () => {
        setTheme(theme === 'light' ? 'dark' : 'light');
+       document.body.setAttribute('data-theme', theme === 'light' ? 'dark' : 'light');
      };
 
      const addOrUpdateTask = () => {
@@ -103,7 +104,7 @@ import React, { useState, useEffect } from 'react';
 
      return (
        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-         <div className="app" data-theme={theme}>
+         <div className="app">
            <ThemeToggle onClick={toggleTheme}>
              {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
            </ThemeToggle>
