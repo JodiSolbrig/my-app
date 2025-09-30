@@ -41,7 +41,7 @@ const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
 };
 
      return (
-       <div>
+       <div className="login">
          <h2>Login</h2>
          <form onSubmit={handleLogin}>
            <input

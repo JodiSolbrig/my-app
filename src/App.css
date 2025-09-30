@@ -13,6 +13,10 @@ body {
   min-height: 100vh;
 }
 
+.login{
+  padding: 20px;
+}
+
 :root {
   --background: #fff;
   --text: #333;
